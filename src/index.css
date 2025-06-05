@@ -1,0 +1,85 @@
+/* Tailwind CSS 基础样式导入 */
+@tailwind base;    /* 重置样式和基础样式 */
+@tailwind components;  /* 组件样式 */
+@tailwind utilities;   /* 实用工具类 */
+
+/* 全局基础样式 */
+:root {
+  /* CSS 自定义属性 - 定义全局颜色变量 */
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-900: #111827;
+}
+
+/* 字体设置 - 使用 Inter 字体作为默认字体 */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 
+               'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 
+               'Helvetica Neue', sans-serif;
+  /* 字体平滑渲染 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 滚动条样式自定义 - 适用于 WebKit 浏览器 */
+::-webkit-scrollbar {
+  width: 6px; /* 滚动条宽度 */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* 滚动条轨道背景 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1; /* 滚动条滑块颜色 */
+  border-radius: 3px; /* 滚动条滑块圆角 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; /* 滚动条滑块悬停颜色 */
+}
+
+/* 自定义动画类 - 用于消息加载动画 */
+@keyframes typing {
+  0%, 60%, 100% { 
+    transform: translateY(0); 
+  }
+  30% { 
+    transform: translateY(-10px); 
+  }
+}
+
+.typing-animation {
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+/* 为不同的点设置延迟，创建波浪效果 */
+.typing-animation:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-animation:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* 聊天容器的滚动行为优化 */
+.chat-scroll {
+  scroll-behavior: smooth; /* 平滑滚动 */
+  /* Firefox 滚动条样式 */
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+/* 焦点样式重置 - 移除默认的焦点轮廓 */
+button:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* 自定义焦点样式 */
+.focus-ring:focus {
+  @apply ring-2 ring-primary-500 ring-opacity-50;
+} 
